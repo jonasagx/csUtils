@@ -10,7 +10,7 @@ func Print(str string) {
 	fmt.Print(str)	
 }
 
-func ReadInput(message string) {
+func ReadInput(message string) string {
 	//Prints the message
 	fmt.Print("Write your name then press ENTER, please: ")
 
