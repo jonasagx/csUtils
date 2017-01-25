@@ -7,7 +7,7 @@ import (
 )
 
 func Print(str string) {
-	fmt.Print(str)	
+	fmt.Println(str)
 }
 
 func ReadInput(message string) string {
