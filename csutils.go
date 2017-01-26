@@ -6,11 +6,18 @@ import (
    "os"		//<-- provides a platform-independent interface to operating system functionality.
 )
 
-func Print(str string) {
-	fmt.Println(str)
+func Print(a ...interface{}) {
+	fmt.Println(a...)
 }
 
-func ReadInput(message string) string {
+func ReadInteger(message string) int {
+	fmt.Print(message)
+	var n int
+    fmt.Scanf("%d", &n)
+	return n
+}
+
+func ReadName(message string) string {
 	//Prints the message
 	fmt.Print("Write your name then press ENTER, please: ")
 
@@ -22,4 +29,8 @@ func ReadInput(message string) string {
 	//Put the input in a variable of type string
 	var name string = scan.Text()
 	return name
+}
+
+func PrintFacts(str string) {
+	fmt.Println("The name", str, "has", len(str), "characters")
 }
