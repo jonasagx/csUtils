@@ -1,9 +1,10 @@
 package csutils
 
 import (
-   "bufio"	//<-- implements buffered I/O.
+   // "bufio"	//<-- implements buffered I/O.
    "fmt"	//<-- implements formatted I/O with functions analogous to C's printf and scanf.
-   "os"		//<-- provides a platform-independent interface to operating system functionality.
+   // "os"		//<-- provides a platform-independent interface to operating system functionality.
+   "log"
 )
 
 func Print(a ...interface{}) {
@@ -11,26 +12,29 @@ func Print(a ...interface{}) {
 }
 
 func ReadInteger(message string) int {
+	//Prints the message
 	fmt.Print(message)
-	var n int
-    fmt.Scanf("%d", &n)
-	return n
+	var number int
+
+	_, err := fmt.Scanln(&number)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return number
 }
 
 func ReadName(message string) string {
 	//Prints the message
-	fmt.Print("Write your name then press ENTER, please: ")
+	fmt.Print(message)
+	var name string
 
-	//Reads the text input
-	var scan = bufio.NewScanner(os.Stdin)
-	
-	//Check if anything was passed as input and extract it
-	scan.Scan()
-	//Put the input in a variable of type string
-	var name string = scan.Text()
+	_, err := fmt.Scanln(&name)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	return name
-}
-
-func PrintFacts(str string) {
-	fmt.Println("The name", str, "has", len(str), "characters")
 }
