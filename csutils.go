@@ -39,7 +39,7 @@ func ReadInteger(message string) int {
 	return number
 }
 
-func ReadName(message string) string {
+func ReadText(message string) {
 	//Prints the message
 	fmt.Print(message)
 	var name string
@@ -49,4 +49,8 @@ func ReadName(message string) string {
 	check(err)
 
 	return name
+}
+
+func ReadName(message string) string {
+	return ReadText(message)
 }
